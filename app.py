@@ -8,25 +8,20 @@ st.set_page_config(page_title="🎧 Moodify – AI Song Recommender", layout="ce
 # ----- Custom CSS & Animations -----
 st.markdown("""
 <style>
-/* Smooth animation on page load */
+/* Background and layout fix */
+html, body, [data-testid="stAppViewContainer"] {
+    background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Fade-in animation */
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-body {
-    background: linear-gradient(to right, #f8f9fa, #e9ecef);
-    font-family: 'Segoe UI', sans-serif;
-}
-
-/* Title and section animation */
 h1, h2, .stSelectbox, .stTextArea, .stButton, .song-card {
     animation: fadeInUp 0.6s ease-in-out;
-}
-
-/* Main app container */
-.main {
-    background-color: #f7f9fb;
 }
 
 /* Text area styling */
@@ -37,21 +32,21 @@ h1, h2, .stSelectbox, .stTextArea, .stButton, .song-card {
     border: 1px solid #ccc;
 }
 
-/* Song card */
+/* Song card design */
 .song-card {
     background: #ffffff;
     padding: 16px;
     border-radius: 12px;
     margin-bottom: 20px;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.07);
-    transition: 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .song-card:hover {
     transform: scale(1.02);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Spotify link styling */
+/* Spotify link */
 a.spotify-link {
     color: #1DB954;
     text-decoration: none;
@@ -61,7 +56,7 @@ a.spotify-link:hover {
     text-decoration: underline;
 }
 
-/* Styled buttons */
+/* Button design */
 .stButton > button {
     background: linear-gradient(to right, #6a11cb, #2575fc);
     color: white;
@@ -79,7 +74,7 @@ a.spotify-link:hover {
 footer {
     text-align: center;
     font-size: 0.85rem;
-    color: #888;
+    color: #555;
     margin-top: 3rem;
 }
 </style>
@@ -121,4 +116,4 @@ if st.button("🎵 Recommend Songs"):
 
 # ----- Footer -----
 st.markdown("---")
-st.markdown("<footer>Made with ❤️ using OpenAI, Spotify API & Streamlit</footer>", unsafe_allow_html=True)
+st.markdown("<footer>Built with ❤️ by Chintu</footer>", unsafe_allow_html=True)
